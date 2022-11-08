@@ -4,7 +4,6 @@ networks:
   php:
     external: true
 
-
 services:
   php:
     container_name: php
@@ -12,4 +11,4 @@ services:
     ports:
       - 80:80
     volumes:
-      # - ./API/src:
+      - ./src:/var/www/html/
