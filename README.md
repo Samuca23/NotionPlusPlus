@@ -1,17 +1,14 @@
 # NotionPlusPlus
 
-## Develop 
+## Develop 👨‍💻
 
-### Cards
-Bootstrap
-1. Desenvolver os cards
+### Interface 🖥🖱
 
+1. Desenvolver os cards usando Bootstrap
+2. Implementar as classes para o funcionamento
+3. Implementar os comportamentos
 
-### API 
+### API 💻
 
-1. API -> com php nativo.
-2. Montar um container PHP.
-3. API vai cadastrar em um arquivo de txt as informações.
-
-
+1. A API será utilizando uma biblioteca chamada JSON Server que basicamente monta uma API baseada em JSON.
 
