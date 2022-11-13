@@ -1,15 +1,15 @@
 version: '3'
 
 networks:
-  php:
+  api:
     external: true
 
-
 services:
-  php:
-    container_name: php
-    image: php:8.0-apache
+  api:
+    container_name: api
+    build: .
     ports:
-      - 80:80
+      - 8282:8282
     volumes:
-      # - ./API/src:
+      - ./db.json:/dev/fakeapi/db.json
+    command: json-server db.json --p 8282
