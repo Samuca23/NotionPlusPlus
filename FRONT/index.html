@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +7,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Notion++</title>
 </head>
-<body>
+<body onload="loadNotations()">
   <div class="container" id="container">
-    <script src="card.js"></script>
-    <script>
-      let teste1 = new Card('Teste 1', 'Isso aqui é somente o teste 1');
-      let teste2 = new Card('Teste 2', 'Isso aqui é somente o teste 2');
-      let teste3 = new Card('Teste 3', 'Isso aqui é somente o teste 3');
-      let teste4 = new Card('Teste 4', 'Isso aqui é somente o teste 4');
-      let teste5 = new Card('Teste 5', 'Isso aqui é somente o teste 5');
-      let teste6 = new Card('Teste 6', 'Isso aqui é somente o teste 6');
-      let teste7 = new Card('Teste 7', 'Isso aqui é somente o teste 7');
-      let teste8 = new Card('Teste 8', 'Isso aqui é somente o teste 8');
-      let teste9 = new Card('Teste 9', 'Isso aqui é somente o teste 9');
-      let teste10 = new Card('Teste 10', 'Isso aqui é somente o teste 10');
-      let teste11 = new Card('Teste 11', 'Isso aqui é somente o teste 11');
-      let teste12 = new Card('Teste 12', 'Isso aqui é somente o teste 12');
-      let teste13= new Card('Teste 13', 'Isso aqui é somente o teste 13');
-      let teste14= new Card('Teste 14', 'Isso aqui é somente o teste 14');
-      let teste15= new Card('Teste 15', 'Isso aqui é somente o teste 15');
-      </script>
+    <script src="request/request.js"></script>
+    <script src="comportamento/index.js"></script>
+    <script src="components/card.js"></script>
+    <button type="submit" onclick="adicionaCard()">+</button>
 </body>
 </html>
