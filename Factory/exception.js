@@ -6,7 +6,7 @@ class Exception {
      * @param {String} sCustumize Tipo de erro com mensagem costumizada
      * @param {Boolean} bReturnConsole se deve retornar no console
      */
-    constructor(bError = false, bAlert = false, sCustumize = '', bReturnConsole = false) {
+    constructor(bError = false, bAlert = false, sCustumize = '', bReturnConsole) {
         if (bReturnConsole) {
             this._returnConsole = bReturnConsole;
         }
@@ -45,20 +45,20 @@ class Exception {
     getExceptionError = () => {
         let oError = new Error('Erro interno. Contante o administrador');
         oError.name = "Error";
-        this.isReturnConsole(oError);
         window.alert(oError);
+        this.isReturnConsole();
     }
-
+    
     /**
      * Dispara um alerta com o Erro do tipo Alerta.
      */
     getExceptionAlert = () => {
         let oAlert = new Error('Isso poderá causar problemas com o sistema.');
         oAlert.name = "Alerta";
-        this.isReturnConsole(oAlert);
         window.alert(oAlert);
+        this.isReturnConsole();
     }
-
+    
     /**
      * Dispara um alerta de Erro costumizado.
      * 
@@ -67,8 +67,8 @@ class Exception {
     getExceptionCustumize = (sException) => {
         let oError = new Error(sException);
         oError.name = "Error Custimized";
-        this.isReturnConsole(oError);
         window.alert(oError);
+        this.isReturnConsole();
     }
 
     /**
@@ -76,9 +76,9 @@ class Exception {
      * 
      * @param {Object} oError 
      */
-    isReturnConsole(oError) {
+    isReturnConsole() {
         if (this._returnConsole) {
-            console.log(`Erro do tipo: ${oError.name}`);
+            console.log(this._returnConsole);
         }
     }
 

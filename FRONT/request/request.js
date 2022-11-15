@@ -29,7 +29,7 @@ class Request {
         )
         .catch(
             (error) => {
-               new Exception(true);
+                new Exception(true, false, '', error);
             }
         );
     }

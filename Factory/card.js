@@ -21,15 +21,15 @@ class Card {
         let oDivCardBody = this.createDiv(`cardBody${iIdNote}`, 'card-body');
         let oHeader = this.createHeader(sTitleCard, iIdNote, 'card-title');
         let oInput = this.createInput(sContentCard, iIdNote, 'card-text');
-        let oDivDate = this.createParagraph(this.getDateTratado(sDate), iIdNote, 'datahora');
         let oButton = this.createButton('x', iIdNote, 'button');
-        
+        let oDivDate = this.createParagraph(this.getDateTratado(sDate), iIdNote, 'datahora');
+
         oDivContainer.appendChild(oDivCard);
         oDivCard.appendChild(oDivCardBody);
-        oDivCardBody.appendChild(oButton);
         oDivCardBody.appendChild(oDivDate);
         oDivCardBody.appendChild(oHeader);
         oDivCardBody.appendChild(oInput);
+        oDivCardBody.appendChild(oButton);
     }
 
     /**
@@ -60,7 +60,9 @@ class Card {
         oInput.setAttribute('id', `inputDescricao${sId}`);
         oInput.setAttribute('class', sClass);
         oInput.value = sContent;
-        oInput.addEventListener('change', () => {updateCard(sId)})
+        oInput.addEventListener('change', () => {
+            updateCard(sId)
+        })
 
         return oInput;
     }
@@ -108,12 +110,14 @@ class Card {
      * @param {string} sClass 
      * @returns 
      */
-     createButton = (sContent = '', sId = '', sClass = '') => {
+    createButton = (sContent = '', sId = '', sClass = '') => {
         let oButton = document.createElement('button');
         oButton.setAttribute('id', `buttonCard${sId}`);
         oButton.setAttribute('class', sClass);
         oButton.innerText = sContent;
-        oButton.addEventListener('click', () => {removeCard(sId)});
+        oButton.addEventListener('click', () => {
+            removeCard(sId)
+        });
 
         return oButton;
     }
@@ -123,14 +127,7 @@ class Card {
      */
     getDateTratado = (sDate) => {
         let oDate = new Date(sDate);
-        let hora = oDate.toLocaleTimeString();
-        let ahora = hora.split(':');
-        ahora[0] = ahora[0] < 10  ? '0'+ahora[0] : ahora[0];
-        ahora[1] = ahora[1] < 10  ? '0'+ahora[1] : ahora[1];
-        ahora[2] = ahora[2] < 10  ? '0'+ahora[2] : ahora[2];
-        let result = ahora.join(':');
-
-        return oDate.toLocaleDateString() + ' ' + result; 
+        return oDate.toLocaleDateString() + ' ' + oDate.toLocaleTimeString();
     }
 
 }
