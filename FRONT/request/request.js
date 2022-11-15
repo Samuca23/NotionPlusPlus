@@ -11,7 +11,8 @@ class Request {
     addNote(fnSucess) {
         let dataToInsert = {
             "title" : "newNote",
-            "content" : "exemple content" 
+            "content" : "exemple content",
+            "date": new Date().getTime()
         };
 
         fetch(this.URL, 
@@ -28,7 +29,7 @@ class Request {
         )
         .catch(
             (error) => {
-                console.log(error);
+               new Exception(true);
             }
         );
     }
@@ -50,7 +51,7 @@ class Request {
         )
         .catch(
             (error) => {
-                console.log(error);
+                new Exception(true);
             }
         );
     }
@@ -71,7 +72,7 @@ class Request {
         )
         .catch(
             (error) => {
-                console.log(error);
+                new Exception(true);
             }
         );
     }
@@ -90,7 +91,7 @@ class Request {
         )
         .catch(
             (error) => {
-                console.log(error);
+                new Exception(true);
             }
         );
     }

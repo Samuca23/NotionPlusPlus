@@ -3,8 +3,8 @@
  */
 class Card {
 
-    constructor(sTitleCard, sContentCard, iId) {
-        this.createLayout(sTitleCard, sContentCard, iId);
+    constructor(sTitleCard, sContentCard, iId, sDate) {
+        this.createLayout(sTitleCard, sContentCard, iId, sDate);
     }
 
     /**
@@ -13,7 +13,7 @@ class Card {
      * @param {String} sContentCard 
      * @param {Integer} iIdNote 
      */
-    createLayout = (sTitleCard, sContentCard, iIdNote) => {
+    createLayout = (sTitleCard, sContentCard, iIdNote, sDate) => {
         let oDivContainer = document.getElementById('container');
 
         let oDivCard = this.createDiv(`cardDiv${iIdNote}`, 'card');
@@ -22,9 +22,11 @@ class Card {
         let oHeader = this.createHeader(sTitleCard, iIdNote, 'card-title');
         let oInput = this.createInput(sContentCard, iIdNote, 'card-text');
         let oButton = this.createButton('x', iIdNote, 'button');
+        let oDivDate = this.createParagraph(this.getDateTratado(sDate), iIdNote, 'button');
 
         oDivContainer.appendChild(oDivCard);
         oDivCard.appendChild(oDivCardBody);
+        oDivCardBody.appendChild(oDivDate);
         oDivCardBody.appendChild(oHeader);
         oDivCardBody.appendChild(oInput);
         oDivCardBody.appendChild(oButton);
@@ -64,6 +66,23 @@ class Card {
     }
 
     /**
+     * Função para criar o Elemento de paragrafo
+     * 
+     * @param {string} sContent 
+     * @param {string} sClass 
+     * @param {string} sId 
+     * @returns 
+     */
+    createParagraph = (sContent = '', sId = '', sClass = '') => {
+        let oInput = document.createElement('p');
+        oInput.setAttribute('id', `paragraph${sId}`);
+        oInput.setAttribute('class', sClass);
+        oInput.innerHTML = sContent;
+
+        return oInput;
+    }
+
+    /**
      * Função para criar o Elemento de H
      * 
      * @param {string} sContent 
@@ -97,6 +116,14 @@ class Card {
         oButton.addEventListener('click', () => {removeCard(sId)});
 
         return oButton;
+    }
+
+    /**
+     * Retorna a data tratada
+     */
+    getDateTratado = (sDate) => {
+        let oDate = new Date(sDate);
+        return oDate.toLocaleDateString() + ' ' + oDate.toLocaleTimeString(); 
     }
 
 }

@@ -3,7 +3,7 @@ var req = new Request();
 function adicionaCard() {
     //Cria um novo card a partir do ID cadastrado.
     req.addNote((data) => {
-        new Card(data.title, data.content, data.id);
+        new Card(data.title, data.content, data.id, data.date);
     });
 }
 
@@ -17,6 +17,7 @@ function updateCard(id) {
         "id": id,
         "title": document.getElementById(`inputHeader${id}`).value,
         "content": document.getElementById(`inputDescricao${id}`).value,
+        "date": new Date().getTime(),
     }
     req.updateNote(data);
 }
@@ -24,7 +25,7 @@ function updateCard(id) {
 function loadNotations() {
     req.loadNotes((data) => {
         for(indice in data) {
-            new Card(data[indice].title, data[indice].content, data[indice].id);
+            new Card(data[indice].title, data[indice].content, data[indice].id, data[indice].date);
         }
     });
 }
