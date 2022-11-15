@@ -9,7 +9,8 @@ function adicionaCard() {
 
 function removeCard(id) {
     req.removeNote(id);
-    document.getElementById('divcardDiv'+id).innerHTML = '';
+    var card = document.getElementById('divcardDiv'+id);
+    document.getElementById('container').removeChild(card);
 }
 
 function updateCard(id) {
