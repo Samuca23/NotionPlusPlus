@@ -11,7 +11,7 @@
 .button {
     font-size: 0.9rem;
     border: none;
-    color: red;
+    color: #ff0000;
     background-color: transparent;
     top: 11px;
     left: 252px;
@@ -38,6 +38,7 @@
 .card-title {
     border: none;
     font-weight: bold;
+    background-color: transparent !important;
 }
 
 .card {
