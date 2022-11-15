@@ -29,7 +29,7 @@ class Request {
         )
         .catch(
             (error) => {
-                new Exception(true, false, '', error);
+                new FactoryException(true, false, '', error);
             }
         );
     }
@@ -51,7 +51,7 @@ class Request {
         )
         .catch(
             (error) => {
-                new Exception(true);
+                new FactoryException(true);
             }
         );
     }
@@ -72,7 +72,7 @@ class Request {
         )
         .catch(
             (error) => {
-                new Exception(true);
+                new FactoryException(true);
             }
         );
     }
@@ -91,7 +91,7 @@ class Request {
         )
         .catch(
             (error) => {
-                new Exception(true);
+                new FactoryException(true);
             }
         );
     }

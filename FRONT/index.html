@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Notion++</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Notion++</title>
 </head>
+
 <body onload="loadNotations()">
-  <div class="container" id="container">
-    <script src="request/request.js"></script>
-    <script src="comportamento/index.js"></script>
-    <script src="../Factory/exception.js"></script>
-    <script src="../Factory/card.js"></script>
+  <div class="modal-header" id="modal-header">
+    <h5 class="modal-title">Notion<span id="maismais"><b>++</b></span></h5>
     <button type="submit" onclick="adicionaCard()">+</button>
+  </div>
+  <div class="container" id="container">
+
+  <script src="request/request.js"></script>
+  <script src="comportamento/index.js"></script>
+  <script src="Factory/FactoryException.js"></script>
+  <script src="components/Exception.js"></script>
+  <script src="components/card.js"></script>
+  <script src="Factory/FactoryCard.js"></script>
+  
 </body>
 </html>

@@ -20,9 +20,9 @@ class Card {
         oDivCard.style.width = '18rem';
         let oDivCardBody = this.createDiv(`cardBody${iIdNote}`, 'card-body');
         let oHeader = this.createHeader(sTitleCard, iIdNote, 'card-title');
-        let oInput = this.createInput(sContentCard, iIdNote, 'card-text');
+        let oInput = this.createTextArea(sContentCard, iIdNote, 'card-text');
         let oDivDate = this.createParagraph(this.getDateTratado(sDate), iIdNote, 'datahora');
-        let oButton = this.createButton('x', iIdNote, 'button');
+        let oButton = this.createButtonClose('x', iIdNote, 'button');
         
         oDivContainer.appendChild(oDivCard);
         oDivCard.appendChild(oDivCardBody);
@@ -63,6 +63,23 @@ class Card {
         oInput.addEventListener('change', () => {updateCard(sId)})
 
         return oInput;
+    }
+    /**
+     * Função para criar o Elemento de TextArea
+     * 
+     * @param {string} sContent 
+     * @param {string} sClass 
+     * @param {string} sId 
+     * @returns 
+     */
+    createTextArea = (sContent = '', sId = '', sClass = '') => {
+        let oTextArea = document.createElement('textarea');
+        oTextArea.setAttribute('id', `inputDescricao${sId}`);
+        oTextArea.setAttribute('class', sClass);
+        oTextArea.value = sContent;
+        oTextArea.addEventListener('change', () => {updateCard(sId)})
+
+        return oTextArea;
     }
 
     /**
@@ -108,7 +125,7 @@ class Card {
      * @param {string} sClass 
      * @returns 
      */
-     createButton = (sContent = '', sId = '', sClass = '') => {
+    createButton = (sContent = '', sId = '', sClass = '') => {
         let oButton = document.createElement('button');
         oButton.setAttribute('id', `buttonCard${sId}`);
         oButton.setAttribute('class', sClass);
@@ -119,18 +136,22 @@ class Card {
     }
 
     /**
+     * Cria o botão de close
+     */
+    createButtonClose = (sContent = '', sId = '', sClass = '') => {
+        let oButton = this.createButton(sContent, sId, sClass + ' ');
+        oButton.setAttribute('data-bs-dismiss', "modal");
+
+        return oButton;
+    }
+
+    /**
      * Retorna a data tratada
      */
     getDateTratado = (sDate) => {
         let oDate = new Date(sDate);
-        let hora = oDate.toLocaleTimeString();
-        let ahora = hora.split(':');
-        ahora[0] = ahora[0] < 10  ? '0'+ahora[0] : ahora[0];
-        ahora[1] = ahora[1] < 10  ? '0'+ahora[1] : ahora[1];
-        ahora[2] = ahora[2] < 10  ? '0'+ahora[2] : ahora[2];
-        let result = ahora.join(':');
 
-        return oDate.toLocaleDateString() + ' ' + result; 
+        return oDate.toLocaleDateString() + ' ' + oDate.toLocaleTimeString(); 
     }
 
 }

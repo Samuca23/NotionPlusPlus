@@ -3,7 +3,7 @@ var req = new Request();
 function adicionaCard() {
     //Cria um novo card a partir do ID cadastrado.
     req.addNote((data) => {
-        new Card(data.title, data.content, data.id, data.date);
+        new FactoryCard(data.title, data.content, data.id, data.date);
     });
 }
 
@@ -25,7 +25,7 @@ function updateCard(id) {
 function loadNotations() {
     req.loadNotes((data) => {
         for(indice in data) {
-            new Card(data[indice].title, data[indice].content, data[indice].id, data[indice].date);
+            new FactoryCard(data[indice].title, data[indice].content, data[indice].id, data[indice].date);
         }
     });
 }

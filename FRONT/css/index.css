@@ -1,9 +1,47 @@
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+}
+
 .datahora {
     font-size: x-small;
 }
 
 .button {
+    font-size: 1.2rem;
+    border: none;
+    color: red;
+    background-color: transparent;
     top: 11px;
-    left: 235px;
+    left: 252px;
     position: absolute;
+}
+
+.button:hover {
+    background-color: rgba(128, 128, 128, 0.119);
+}
+
+.card-text {
+    border: 0.5px solid rgba(0, 0, 0, 0.229);
+}
+
+.card-title {
+    border: none;
+}
+
+#maismais {
+    font-size: x-large;
+}
+
+@media(max-width: 960px) {
+    .container {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media(max-width: 720px) {
+    .container {
+        grid-template-columns: auto;
+    }
 }
