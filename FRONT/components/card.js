@@ -21,7 +21,7 @@ class Card {
         let oDivCardBody = this.createDiv(`cardBody${iIdNote}`, 'card-body');
         let oHeader = this.createHeader(sTitleCard, iIdNote, 'card-title');
         let oInput = this.createTextArea(sContentCard, iIdNote, 'card-text');
-        let oDivDate = this.createParagraph(this.getDateTratado(sDate), iIdNote, 'datahora');
+        let oDivDate = this.createParagraph(Card.getDateTratado(sDate), 'DataHora'+iIdNote, 'datahora');
         let oButton = this.createButtonClose('x', iIdNote, 'button');
         
         oDivContainer.appendChild(oDivCard);
@@ -148,10 +148,22 @@ class Card {
     /**
      * Retorna a data tratada
      */
-    getDateTratado = (sDate) => {
+    static getDateTratado = (sDate) => {
         let oDate = new Date(sDate);
 
         return oDate.toLocaleDateString() + ' ' + oDate.toLocaleTimeString(); 
     }
+
+    static generateColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        
+        return color;
+        
+      }
 
 }

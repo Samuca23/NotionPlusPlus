@@ -9,13 +9,21 @@
 }
 
 .button {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     border: none;
     color: red;
     background-color: transparent;
     top: 11px;
     left: 252px;
     position: absolute;
+
+}
+
+.button:hover {
+    font-size: 1rem;
+    font-weight: bold;
+    -webkit-transition: all 0.4s;
+    border-radius: 10%;
 }
 
 .button:hover {
@@ -24,10 +32,16 @@
 
 .card-text {
     border: 0.5px solid rgba(0, 0, 0, 0.229);
+    border-radius: 3px;
 }
 
 .card-title {
     border: none;
+    font-weight: bold;
+}
+
+.card {
+    margin: 1em;
 }
 
 #maismais {
@@ -44,4 +58,6 @@
     .container {
         grid-template-columns: auto;
     }
+
+
 }

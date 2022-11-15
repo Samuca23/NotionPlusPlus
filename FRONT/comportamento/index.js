@@ -20,6 +20,7 @@ function updateCard(id) {
         "date": new Date().getTime(),
     }
     req.updateNote(data);
+    document.getElementById('paragraphDataHora'+id).innerHTML = Card.getDateTratado(data.date);
 }
 
 function loadNotations() {
